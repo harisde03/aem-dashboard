@@ -1,26 +1,22 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Chart } from '../../models/chart';
-import { ApexChart } from 'ng-apexcharts';
 
 @Component({
   selector: 'app-donut-chart',
   templateUrl: './donut-chart.component.html',
   styleUrls: ['./donut-chart.component.scss'],
 })
-export class DonutChartComponent implements OnInit {
+export class DonutChartComponent implements OnChanges {
   @Input() title: string = 'Card Title';
-  @Input() data: Chart[] = [
-    { name: 'Category 1', value: 30 },
-    { name: 'Category 2', value: 40 },
-    { name: 'Category 3', value: 25 },
-    { name: 'Category 4', value: 35 },
-  ];
+  @Input() data: Chart[] = [];
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.chartOptions.series = this.data.map((item) => item.value);
-    this.chartOptions.labels = this.data.map((item) => item.name);
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['data'] && this.data) {
+      this.chartOptions.series = this.data.map((item) => item.value);
+      this.chartOptions.labels = this.data.map((item) => item.name);
+    }
   }
 
   public chartOptions = {
