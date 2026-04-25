@@ -19,7 +19,7 @@ export class AuthService {
     username: string;
     password: string;
   }): Observable<string> {
-    return this.http.post<string>(this.apiUrl + '/account/login', credentials).pipe(
+    return this.http.post<string>(`${this.apiUrl}/account/login`, credentials).pipe(
       tap((response) => {
         if (response) this.tokenService.saveToken(response);
       })
