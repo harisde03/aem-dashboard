@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Chart } from '../../models/chart';
 
 @Component({
@@ -6,26 +6,22 @@ import { Chart } from '../../models/chart';
   templateUrl: './bar-chart.component.html',
   styleUrls: ['./bar-chart.component.scss'],
 })
-export class BarChartComponent implements OnInit {
+export class BarChartComponent implements OnChanges {
   @Input() title: string = 'Card Title';
-  @Input() data: Chart[] = [
-    { name: 'Category 1', value: 30 },
-    { name: 'Category 2', value: 40 },
-    { name: 'Category 3', value: 25 },
-    { name: 'Category 4', value: 35 },
-    { name: 'Category 5', value: 45 },
-  ];
+  @Input() data: Chart[] = [];
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.chartOptions.series = [
-      {
-        name: this.title,
-        data: this.data.map((item) => item.value),
-      },
-    ];
-    this.chartOptions.xaxis.categories = this.data.map((item) => item.name);
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['data'] && this.data) {
+      this.chartOptions.series = [
+        {
+          name: this.title,
+          data: this.data.map((item) => item.value),
+        },
+      ];
+      this.chartOptions.xaxis.categories = this.data.map((item) => item.name);
+    }
   }
 
   public chartOptions = {
