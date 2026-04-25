@@ -1,0 +1,25 @@
+<div class="table-responsive">
+    <table class="table table-bordered text-center">
+        <thead>
+            <tr>
+                <td scope="col">#</td>
+                <td scope="col">First Name</td>
+                <td scope="col">Last Name</td>
+                <td scope="col">User Name</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users; let i = index">
+                <td>{{ i+1 }}</td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr *ngIf="users.length === 0">
+                <td colspan="4" class="text-center text-muted font-italic py-4">
+                    No users found.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
