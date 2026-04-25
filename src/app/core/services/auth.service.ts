@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = environment.apiUrl + '/account/login';
+  private apiUrl = environment.apiUrl;
   private tokenKey = 'APP_TOKEN';
 
   constructor(private http: HttpClient) {}
@@ -16,7 +16,7 @@ export class AuthService {
     username: string;
     password: string;
   }): Observable<string> {
-    return this.http.post<string>(this.apiUrl, credentials).pipe(
+    return this.http.post<string>(this.apiUrl + '/account/login', credentials).pipe(
       tap((response) => {
         if (response) this.setToken(response);
       })
