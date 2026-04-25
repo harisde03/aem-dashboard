@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { TokenService } from '../services/token.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GuestGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private tokenService: TokenService, private router: Router) {}
 
   canActivate(): boolean {
-    const token = this.authService.getToken();
+    const token = this.tokenService.getToken();
 
     if (token) {
       this.router.navigate(['/dashboard']);
       return false;
     }
-    
+
     return true;
   }
 }
