@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://test-demo.aemenersol.com/api'
+  apiUrl: 'https://api-proxy.harisdaffa33.workers.dev/api'
 };
