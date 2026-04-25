@@ -26,6 +26,9 @@ jobs:
 
       - name: Build
         run: npm run build -- --configuration production --base-href /aem-dashboard/
+        
+      - name: Prepare for GitHub Pages
+        run: cp dist/aem-dashboard/index.html dist/aem-dashboard/404.html
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
