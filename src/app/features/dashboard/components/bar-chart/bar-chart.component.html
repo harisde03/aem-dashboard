@@ -1,1 +1,22 @@
-<p>bar-chart works!</p>
+<div class="card">
+    <div class="card-header font-weight-bold">{{ title }}</div>
+    <div class="card-body">
+        <div id="chart" style="height: 350px;">
+            <apx-chart
+                *ngIf="data.length > 0; else noData"
+                [series]="chartOptions.series"
+                [chart]="chartOptions.chart"
+                [plotOptions]="chartOptions.plotOptions"
+                [dataLabels]="chartOptions.dataLabels"
+                [xaxis]="chartOptions.xaxis"
+                [grid]="chartOptions.grid"
+                [responsive]="chartOptions.responsive"
+            ></apx-chart>
+            <ng-template #noData>
+                <div class="text-center text-muted font-italic py-4">
+                    There are no data provided.
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>
