@@ -32,7 +32,10 @@
             ],
             "scripts": [],
             "allowedCommonJsDependencies": [
-              "apexcharts"
+              "apexcharts",
+              "events",
+              "spark-md5",
+              "vuvuzela"
             ]
           },
           "configurations": {
