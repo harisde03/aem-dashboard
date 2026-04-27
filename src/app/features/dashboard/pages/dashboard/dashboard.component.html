@@ -1,8 +1,16 @@
 <app-header></app-header>
 
 <div class="container">
-    <div class="alert alert-warning mt-4" [hidden]="!errorMessage" role="alert">
+    <div *ngIf="errorMessage" class="alert alert-warning mt-4" role="alert">
         {{ this.errorMessage }}
+    </div>
+    
+    <div *ngIf="lastUpdated" class="alert alert-secondary mt-4 d-flex align-items-center" role="alert">
+        Currently offline. Last sync: {{ lastUpdated | timeAgo }}
+        <button class="btn btn-primary ml-auto" (click)="onLoadData()">
+            <span class="spinner-border spinner-border-sm mr-1" role="status" aria-hidden="true" [hidden]="!isLoading"></span>
+            Refresh
+        </button>
     </div>
     
     <h2 class="mt-4 text-center text-xl-left">Overview</h2>

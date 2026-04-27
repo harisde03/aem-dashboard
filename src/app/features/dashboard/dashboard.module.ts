@@ -8,6 +8,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { TimeAgoPipe } from './pipes/time-ago.pipe';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     BarChartComponent,
     DashboardComponent,
     UserTableComponent,
-    HeaderComponent
+    HeaderComponent,
+    TimeAgoPipe
   ],
   imports: [
     CommonModule,
