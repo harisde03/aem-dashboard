@@ -2,12 +2,13 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { DbDocument } from '../models/db-document';
 import PouchDB from 'pouchdb';
 import { catchError, from, map, Observable, of, throwError } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DbService implements OnDestroy {
-  private readonly DB_NAME = 'aem-dashboard-db';
+  private readonly DB_NAME = environment.db;
   private db: PouchDB.Database<DbDocument>;
 
   constructor() {
