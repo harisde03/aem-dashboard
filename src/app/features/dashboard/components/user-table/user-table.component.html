@@ -15,10 +15,28 @@
                 <td>{{ user.lastName }}</td>
                 <td>@{{ user.username }}</td>
             </tr>
-            <tr *ngIf="users.length === 0">
+            <tr *ngIf="!isLoading &&!users.length">
                 <td colspan="4" class="text-center text-muted font-italic py-4">
                     No users found.
                 </td>
+            </tr>
+            <tr *ngIf="isLoading && !users.length">
+                <td class="p-2"><div class="skeleton" style="height: 36px;"></div></td>
+                <td class="p-2"><div class="skeleton" style="height: 36px;"></div></td>
+                <td class="p-2"><div class="skeleton" style="height: 36px;"></div></td>
+                <td class="p-2"><div class="skeleton" style="height: 36px;"></div></td>
+            </tr>
+            <tr *ngIf="isLoading && !users.length">
+                <td class="p-2"><div class="skeleton" style="height: 36px;"></div></td>
+                <td class="p-2"><div class="skeleton" style="height: 36px;"></div></td>
+                <td class="p-2"><div class="skeleton" style="height: 36px;"></div></td>
+                <td class="p-2"><div class="skeleton" style="height: 36px;"></div></td>
+            </tr>
+            <tr *ngIf="isLoading && !users.length">
+                <td class="p-2"><div class="skeleton" style="height: 36px;"></div></td>
+                <td class="p-2"><div class="skeleton" style="height: 36px;"></div></td>
+                <td class="p-2"><div class="skeleton" style="height: 36px;"></div></td>
+                <td class="p-2"><div class="skeleton" style="height: 36px;"></div></td>
             </tr>
         </tbody>
     </table>

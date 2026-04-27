@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://test-demo.aemenersol.com/api'
+  apiUrl: 'http://test-demo.aemenersol.com/api',
+  salt: 'aem-dashboard-salt',
+  db: 'aem-dashboard-db'
 };
 
 /*

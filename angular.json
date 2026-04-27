@@ -30,7 +30,13 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "apexcharts",
+              "events",
+              "spark-md5",
+              "vuvuzela"
+            ]
           },
           "configurations": {
             "production": {
