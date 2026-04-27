@@ -8,6 +8,7 @@ import { User } from '../../models/user';
 })
 export class UserTableComponent {
   @Input() users: User[] = [];
+  @Input() isLoading: boolean = true;
 
   constructor() {}
 }

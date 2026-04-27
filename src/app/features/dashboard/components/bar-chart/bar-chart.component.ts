@@ -9,6 +9,7 @@ import { Chart } from '../../models/chart';
 export class BarChartComponent implements OnChanges {
   @Input() title: string = 'Card Title';
   @Input() data: Chart[] = [];
+  @Input() isLoading: boolean = true;
 
   constructor() {}
 
