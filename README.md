@@ -1,27 +1,63 @@
-# AemDashboard
+# AEM Dashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+## Live Demo
 
-## Development server
+The web version of this project is deployed at:
+[https://harisde03.github.io/aem-dashboard/](https://harisde03.github.io/aem-dashboard/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Getting Started
 
-## Code scaffolding
+### Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/harisde03/aem-dashboard.git
+   cd aem-dashboard
+   ```
 
-## Build
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Web Development
 
-## Running unit tests
+To run the application in your browser for development:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+npm start
+```
 
-## Running end-to-end tests
+Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Electron Development
 
-## Further help
+To run the application as a desktop app using Electron:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+npm run electron
+```
+
+This will build the Angular app with a relative base href and launch it within an Electron window.
+
+## Building for Production
+
+### Web Build
+
+To build the project for web deployment:
+
+```bash
+npm run build
+```
+
+The build artifacts will be stored in the `dist/aem-dashboard/` directory.
+
+### Electron App Build
+
+To package the application for desktop (Windows, macOS, or Linux):
+
+```bash
+npm run electron:build
+```
+
+The packaged executables will be available in the `release/` directory.
