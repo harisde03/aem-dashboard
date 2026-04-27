@@ -1,18 +1,26 @@
 <app-header></app-header>
 
 <div class="container">
-    <div class="alert alert-warning mt-4" [hidden]="!errorMessage" role="alert">
+    <div *ngIf="errorMessage" class="alert alert-warning mt-4" role="alert">
         {{ this.errorMessage }}
+    </div>
+    
+    <div *ngIf="lastUpdated" class="alert alert-secondary mt-4 d-flex align-items-center" role="alert">
+        Currently offline. Last sync: {{ lastUpdated | timeAgo }}
+        <button class="btn btn-primary ml-auto" (click)="onLoadData()">
+            <span class="spinner-border spinner-border-sm mr-1" role="status" aria-hidden="true" [hidden]="!isLoading"></span>
+            Refresh
+        </button>
     </div>
     
     <h2 class="mt-4 text-center text-xl-left">Overview</h2>
 
     <div class="row mt-4">
         <div class="col-12 col-lg-6 mb-4">
-            <app-donut-chart title="Performance Category" [data]="chartDonut"></app-donut-chart>
+            <app-donut-chart title="Performance Category" [data]="chartDonut" [isLoading]="isLoading"></app-donut-chart>
         </div>
         <div class="col-12 col-lg-6">
-            <app-bar-chart title="Performance Distribution" [data]="chartBar"></app-bar-chart>
+            <app-bar-chart title="Performance Distribution" [data]="chartBar" [isLoading]="isLoading"></app-bar-chart>
         </div>
     </div>
 
@@ -20,7 +28,7 @@
 
     <div class="row mt-4">
         <div class="col">
-            <app-user-table [users]="users"></app-user-table>
+            <app-user-table [users]="users" [isLoading]="isLoading"></app-user-table>
         </div>
     </div>
 </div>

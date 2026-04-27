@@ -66,16 +66,9 @@ export class LoginComponent {
         this.router.navigate(['/dashboard']);
       },
       error: (err) => {
-        if (err.status === 400) {
-          this.errorMessage = 'Bad Request.';
-        } else if (err.status === 401) {
-          this.errorMessage = 'These credentials do not match our records.';
-        } else {
-          this.errorMessage = 'Unable to reach the server.';
-        }
-
+        this.errorMessage = err.message;
         this.isLoading = false;
-      },
+      }
     });
   }
 }

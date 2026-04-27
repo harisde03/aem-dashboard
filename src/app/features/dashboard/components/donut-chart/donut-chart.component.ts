@@ -9,6 +9,7 @@ import { Chart } from '../../models/chart';
 export class DonutChartComponent implements OnChanges {
   @Input() title: string = 'Card Title';
   @Input() data: Chart[] = [];
+  @Input() isLoading: boolean = true;
 
   constructor() {}
 
