@@ -8,7 +8,19 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "electron": "ng build --configuration production --base-href ./ && electron ."
+    "electron": "ng build --configuration production --base-href ./ && electron .",
+    "electron:build": "ng build --configuration production --base-href ./ && electron-builder build"
+  },
+  "build": {
+    "appId": "com.aem.dashboard",
+    "productName": "AEM Dashboard",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/aem-dashboard/**/*",
+      "main.js"
+    ]
   },
   "private": true,
   "dependencies": {
@@ -38,6 +50,7 @@
     "@types/node": "^16.18.126",
     "@types/pouchdb": "^6.4.2",
     "electron": "^41.3.0",
+    "electron-builder": "^26.8.1",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
