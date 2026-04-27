@@ -16,7 +16,7 @@ export interface DashboardApiResponse {
   providedIn: 'root'
 })
 export class DashboardService {
-  private apiUrl = environment.apiUrl;
+  private readonly apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
